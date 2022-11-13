@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+   <title>
+    {% block title %}
+    Base
+    {% endblock title %}  
+    </title>
+    
+
+   <link rel="stylesheet" href="{% static  'styles/design.css' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<!--<script src="{% static 'javascriptsfile/js.js' %}"> </script>
+-->
+<script src="https://use.fontawesome.com/29c758e36b.js" crossorigin="anonymouse"></script>
+<body>
+
+
+    <!-- for authenticating and swapping user pprocedures -->
+    {% if request.user.is_authenticated %}
+    
+    {% block userwithauth %}
+    
+    {% endblock %}
+
+    {% else %}
+    {% block ordinary %}
+    
+    {% endblock ordinary %}
+
+    {% endif %}
+
+    <!--the process ends here proceeed to the screen to see wonders-->
+
+
+    {% block haeders %}
+hello
+    {% endblock %}
+
+
+
+
+
+
+    <div class="footer">
+        <h2> Edutechies &#169; 2021 &#8594; 2022</h2>
+    
+        <h4>Few Navigations</h4>
+        <a href="">contact</a>
+        <a href="">About</a>
+        <a href="">Signup</a>
+        <a href="">login</a>
+
+        <h2 style="height:50px;">@Edutechies &#169; 2022 <a href="">{% if request.user.is_anonymouse %}Hire Us{% endif %}</a></h2>
+    </div>
+</body>

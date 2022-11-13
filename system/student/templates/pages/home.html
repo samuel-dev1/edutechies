@@ -1,0 +1,108 @@
+
+
+{% extends 'base.html' %}
+
+
+
+{% block userwithauth %}
+    
+{% endblock %}
+
+{% block ordinary %}
+
+
+<div class="Navigations">
+    <ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="" onclick ="myfuncton()">Contact</a></li>
+
+<div class="wrapper">
+<li><a href="{% url 'login' %}">login</a></li>
+<li><a href="">Signup</a></li>
+
+</div>
+    </ul>
+
+</div>
+
+<script>
+function myfuncton (){
+    alert("please call 08130423221")
+}
+</script>
+
+{% endblock ordinary %}
+
+
+
+{% block haeders %}
+<div class="techies">
+<h1>Techies for Education Students </h1>
+<p>welcome to the temporary site</p>
+</div>
+
+
+<div class="tech">
+<p>Technology play a huge role in our daily lives frm the simplest of apps to thr most grounbreaking inventions, but what exactly is web development, and what do developers do?
+    join our whatApp throught this link below.
+</p>
+    <b style="color:red">!!</b> -> Education Students only..
+
+    <b style="color:green">
+<a style="color:green; " href ="https://chat.whatsapp.com/GrQk2AnlbQeGENfkPOe63v"> join <i class="fa fa-whatsapp"></i></a> </b>
+<p>
+we'll go through the basics of web development 
+
+tackle Questions/Solve Problems
+
+Share Ideas and Network
+    </p>
+
+
+</div>
+
+
+
+
+<div class="best">
+    
+    
+    <h5>requirements</h5>
+    <li> Id card or course form </li>
+    <li> Must be in faculty of Education</li>
+
+    <h5>features</h5>
+
+    <li>Train people in coding skills</li>
+    <li>Give people's ides and understanding how it's all works...</li>
+    <li>Discuss Ideas and solving problems</li>
+
+</div>
+
+<div>
+    <h3>Pioniers and Founders</h3>
+
+
+    <div class="eni">
+    Mrs. Eniola
+
+    <img src =""/>
+
+    Web-developer and Software engineer
+    </div>
+
+    <div class="ayo">
+        Mr.Ayodele
+        <img src=""/>
+
+        Profesional Boot developer with ai experiences
+</div>
+
+<div>
+Mr.Samuel
+<img src=""/>
+Web-developer and App- developer
+</div>1
+{% endblock haeders %}

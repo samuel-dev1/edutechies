@@ -1,0 +1,119 @@
+
+
+/* for general atrribute */
+a{
+    color: rgba(7, 7, 46, 0.671);
+    padding: 4px;
+    font-size: medium;
+    font-weight: bold;
+    font-style: normal;
+}
+a:hover{
+    color: #333;
+    padding: 4px;
+
+}
+a:active{
+    color: blue;
+    padding: 4px;
+}
+
+.Navigations{
+    padding: 10px;
+    background-color: rgba(248, 248, 248, 0.704);
+    width: 90%;
+    margin-top: 10px;
+    border:2px solid rgba(232, 232, 232, 0.219) ;
+    margin: auto;
+
+    
+
+}
+.wrapper{
+   float: right;
+   color: rgba(5, 5, 70, 0.738);
+
+}
+.techies{
+   background-color: rgba(241, 234, 234, 0.774); 
+   text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size:medium;
+    font-weight: normal;
+    border-radius: 6px;
+    width: max-content;
+    padding: 10px;
+    margin-top: 20px;
+
+    
+
+}
+
+.Navigations ul,li{
+    list-style: none;
+    padding: 10px;
+    height: auto;
+    display: inline;
+}
+.Navigations a{
+    text-decoration: none;
+    display: inline
+    
+}
+
+.tech{
+    background-color: rgba(241, 234, 234, 0.774); 
+    text-align: left;
+     justify-content: left;
+     align-items: left;
+     margin: auto;
+     font-size:medium;
+     font-weight: normal;
+     width: 60%;
+     max-width: fit-content;
+     padding: 10px;
+     border-radius: 6px;
+     margin-top: 20px;
+}
+.tech p{
+    font-size: medium;
+    font-family:Arial, Helvetica, sans-serif;
+    padding: 10px;
+    word-spacing: normal;
+    
+}
+.best{
+    background-color: rgba(241, 234, 234, 0.774); 
+    text-align: left;
+     justify-content: left;
+     align-items: left;
+     margin: auto;
+     font-size:medium;
+     font-weight: normal;
+     width: 60%;
+
+     padding: 10px;
+     border-radius: 6px;
+     margin-top: 20px; 
+}
+.best h5{
+    align-items: center;
+    text-align: center;
+    justify-content:center;
+    font-size: large;
+    padding: 10px;
+    text-transform: capitalize;
+}
+.best li{
+    display: block;
+    list-style:decimal;
+
+
+}
+.footer{
+    background-color: rgba(61, 14, 14, 0.112);
+    text-align: center;
+
+}
