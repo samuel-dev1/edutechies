@@ -39,14 +39,15 @@
 
 
     {% block haeders %}
-hello
+
     {% endblock %}
 
 
 
 
+{% block signin %}{% endblock signin %}
 
-
+{% block footer %}
     <div class="footer">
         <h2> Edutechies &#169; 2021 &#8594; 2022</h2>
     
@@ -59,3 +60,4 @@ hello
         <h2 style="height:50px;">@Edutechies &#169; 2022 <a href="">{% if request.user.is_anonymouse %}Hire Us{% endif %}</a></h2>
     </div>
 </body>
+{% endblock footer %}
