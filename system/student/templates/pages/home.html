@@ -1,10 +1,24 @@
 
 
 {% extends 'base.html' %}
-
-
-
 {% block userwithauth %}
+<div class="Navigations">
+    <ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="" onclick ="alert("check back december 15")">Standing</a></li>
+
+<div class="wrapper">
+<li><a href="{% url 'profile' request.user.username %}">Profile</a></li>
+<li><a href="{% url 'logout' %}">logout</a></li>
+
+</div>
+    </ul>
+
+</div>
+
+
     
 {% endblock %}
 

@@ -11,6 +11,7 @@ from django.contrib.auth import  login, authenticate, logout
 import datetime
 from django.db.models.query_utils import Q
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
@@ -40,7 +41,6 @@ def login_page(request):
             
     else:
         form = LoginForm()
-        messages.success(request, "welcome back,")
         
     return render(request,"auth/login.html", {"form":form})
 
@@ -62,12 +62,18 @@ def signup(request):
         form = signupform(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request,"Profile created continue")
+            messages.success(request,"Profile created login to continue")
             return redirect('login')
         else:
             messages.error(request, "Registration failed! kindly check your details ")
     else:
         # else if niot working this should prevenet futher auth. errror
         form =signupform()
-     
     return render(request, "auth/signup.html", {"form":form})
+
+@login_required
+def viewprofile(request, username):
+    username = request.user.username
+    print(username)
+    return render (request, "pages/view.html")
+    
