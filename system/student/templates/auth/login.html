@@ -2,28 +2,35 @@
 {% load crispy_forms_filters %}
 
 
+
+{% block extracss %}
+
+{% endblock extracss %}
+
 {% block signin %}
 
 
 <div class="form-wrap">
     <form method ="POST" class="main-form">
         {% csrf_token %}
-        <p>Login yourAccount continue</p>
+        <h1>Login</h1>
         
 {{form|crispy}}
-
-<button type="submit">Login</button>
+<p>
 {% if messages %}
 
 {% for message in messages %}
-<li style="color:green" {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
+<li style="color:yellow" {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
 {% endfor %}
 
 {% endif %}
+</p>
+<button type="submit">Login</button>
 
-<h5>Don't have account <a href="{% url 'login' %}">here</a></h5>
+
+<h5>Don't have account <a href="{% url 'signup' %}">here</a></h5>
     </form>
-<h6>Forget password <a href="">click here</a></h6>
+<h6>Forget password <a onclick ="alert('please contant the admin for help')">click here</a></h6>
 
 </div>
 

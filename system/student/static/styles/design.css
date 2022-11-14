@@ -1,5 +1,7 @@
 
-
+body{
+    background-color: rgba(0, 0, 0, 0);
+}
 /* for general atrribute */
 a{
     color: rgba(7, 7, 46, 0.671);
@@ -116,4 +118,65 @@ a:active{
     background-color: rgba(61, 14, 14, 0.112);
     text-align: center;
 
+}
+.form-wrap{
+width: 40%;
+margin: auto;
+background-color: rgba(7, 3, 3, 0.571);
+border: 2px solid #fff;
+border-radius: 10px;
+margin-top: 100px;
+
+}
+.form-wrap h1{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 10px;
+    margin: unset;
+    width:auto;
+    margin-bottom: 15px;
+}
+.form-wrap label{
+    text-align:left;
+    margin: auto;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(232, 220, 220, 0.952);
+    padding: 10px;
+    margin-top: 10px;
+}
+.form-wrap input{
+    margin: 10px;
+    padding: 4px;
+    width: 90%;
+    border: 2px solid rgba(159, 146, 146, 0.098) ;
+    border-radius: 6px;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.form-wrap button{
+    width: 50%;
+    background-color: darkblue;
+    padding: 10px;
+    margin: auto;
+    color: #fff;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 6px;
+    margin:unset;
+    margin-left: 100px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+.form-wrap h5, h6{
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+    color: #fff;
 }

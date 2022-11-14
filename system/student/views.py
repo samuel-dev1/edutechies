@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .form import LoginForm
+from .form import LoginForm, signupform
 # Create your views here.
 from django.shortcuts import  HttpResponseRedirect, render, redirect, get_object_or_404
 # Create your views here.
@@ -47,3 +47,27 @@ def login_page(request):
 def logout_page(request):
     logout(request)
     return redirect('home')
+def signup(request):
+    """
+    for signing user which will be 
+    over ride soon;
+    contain form from form.py, and passed message to know if its error or success
+    
+    """
+    
+    #form here
+    form = signupform()
+    if request.method == "POST":
+        #sign up form passed into request
+        form = signupform(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"Profile created continue")
+            return redirect('login')
+        else:
+            messages.error(request, "Registration failed! kindly check your details ")
+    else:
+        # else if niot working this should prevenet futher auth. errror
+        form =signupform()
+     
+    return render(request, "auth/signup.html", {"form":form})
