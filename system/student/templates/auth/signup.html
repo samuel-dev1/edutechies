@@ -1,0 +1,45 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+
+
+
+{% block extracss %}
+
+{% endblock extracss %}
+
+{% block signin %}
+
+
+<div class="form-wrap">
+    <form method ="POST" class="main-form">
+        {% csrf_token %}
+        <h1>Login</h1>
+        
+{{form|crispy}}
+<p>
+{% if messages %}
+
+{% for message in messages %}
+<li style="color:yellow" {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
+{% endfor %}
+
+{% endif %}
+</p>
+<button type="submit">Login</button>
+
+
+<h5>already have account <a href="{% url 'login' %}">here</a></h5>
+    </form>
+<h6>Forget password <a href="">click here</a></h6>
+
+</div>
+
+
+
+{% endblock signin %}
+
+{% block footer %}
+
+{% endblock footer %}
+
