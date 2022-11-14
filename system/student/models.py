@@ -18,7 +18,7 @@ import random, string
 class Profile(models.Model):
     choice = (("web development", "web developmnet"), ("app development", "app develpment"), ("web design", 'web design'), ("others", "others"))
     system_ram = models.IntegerField(default=2)
-    phone_number = models.CharField(max_length=10)
+    phone_number = models.CharField(max_length=11)
     club_department =models.CharField(choices=choice, max_length=100)
     department = models.CharField(max_length=200)
     user = models.OneToOneField(User, on_delete =models.CASCADE,related_name ="user_account")

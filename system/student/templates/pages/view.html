@@ -2,4 +2,102 @@
 
 
 
-{{% block profile %}{% endblock profile %}}
+{% block profile %}
+
+<div class="editall">
+
+<p>
+please edit your information according to the group messages</p>
+
+<h1>{{request.user.username}}, Personal  information </h1>
+<ul>
+    Edutechies id:  <li><input value ="{{request.user.user_account.slug}}" disabled /> </li>
+
+</ul>
+
+<ul>
+username: <li><input value="{{request.user.username}}" disabled />
+</li>
+</ul> 
+
+<ul>
+full name: <li><input value="{{request.user.first_name}} {{request.user.last_name}}"  disabled />
+</li>
+</ul>
+
+<ul>
+email: <li><input value="{{request.user.email}}"  disabled />
+</li>
+</ul>
+
+
+
+
+<h2>Profile</h2>
+<p>please edit the following pages as its required 
+a. your system ram specifications very important thanks.
+
+</p>
+<p>
+please check your ram on your computer system and edit the following accordingly
+</p>
+
+<form method ="post" >
+    {% csrf_token %}
+<ul>
+  
+
+System ram : <li><input name="ram"  value=" {{request.user.user_account.system_ram}}"  />
+  
+   
+</ul>
+<ul>
+    club department: <li><input name="cdepart" value="{{request.user.user_account.club_department}}"   /></li>
+    <ol style="color:red; font-size:small">
+        options are:
+        <li>Web development</li>
+        <li>app development</li>
+        <li>web design</li>
+        <li>Others</li>
+    </ol>
+    
+   
+</ul>
+    <ul>
+        phone number: <li> <input name ="number" value="{{request.user.user_account.phone_number}}"   /> </li>
+       
+    </ul>
+        <ul>
+            department:<li> <input name ="department" value = "{{request.user.user_account.department}}" /></li>
+           
+        </ul>
+        {% if messages %}
+
+        <ul class="messages">
+            {% for message in messages %}
+            <li style="color:red" {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        
+
+<button type ="submit">
+Save
+
+</button>
+    </form>
+
+  
+
+ 
+</div>
+
+
+<a href="{% url 'home' %}">Go back</a>
+{% endblock profile %}
+
+
+
+
+{% block footer %}{% endblock footer %}

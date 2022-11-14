@@ -20,7 +20,7 @@
 <script src="https://use.fontawesome.com/29c758e36b.js" crossorigin="anonymouse"></script>
 <body>
 
-
+    {% block profile %}{% endblock profile %}
     <!-- for authenticating and swapping user pprocedures -->
     {% if request.user.is_authenticated %}
     
@@ -48,6 +48,21 @@
 {% block signin %}{% endblock signin %}
 
 {% block footer %}
+{% if request.user.is_authenticated %} <div class="footer">
+    <h2> Edutechies &#169; 2021 &#8594; 2022</h2>
+
+    <h4>Few Navigations</h4>
+    <a href="">Home</a>
+    <a href="">Standing</a>
+    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'profile' request.user.username %}">Profile</a>
+    <a href ="">Generata id card</a>
+  
+
+    <h2 style="height:50px;">@Edutechies &#169; 2022 <a href="">{% if request.user.is_anonymouse %}Hire Us{% endif %}</a></h2>
+</div>
+
+{% else %}
     <div class="footer">
         <h2> Edutechies &#169; 2021 &#8594; 2022</h2>
     
@@ -56,13 +71,14 @@
         <a href="">About</a>
         <a href="">Signup</a>
         <a href="">login</a>
+      
 
         <h2 style="height:50px;">@Edutechies &#169; 2022 <a href="">{% if request.user.is_anonymouse %}Hire Us{% endif %}</a></h2>
     </div>
+    {% endif %}
 
 
 
-
-    {{% block profile %}{% endblock profile %}}
+   
 </body>
 {% endblock footer %}

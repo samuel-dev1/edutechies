@@ -12,10 +12,13 @@ import datetime
 from django.db.models.query_utils import Q
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from .models import Profile, Post
 
 
 def home(request):
-    return render(request, "pages/home.html")
+    context = Post.objects.all()
+    content = {"content":context}
+    return render(request, "pages/home.html",  content)
 
 
 
@@ -73,7 +76,28 @@ def signup(request):
 
 @login_required
 def viewprofile(request, username):
-    username = request.user.username
-    print(username)
+    
+    recent_user = get_object_or_404(Profile, user =request.user.id)
+    if request.method == "POST":
+        ram = request.POST.get("ram")
+        cdpart = request.POST.get("cdepart")
+        number = request.POST.get("number")
+        department = request.POST.get("department")
+        recent_user.system_ram = ram
+        recent_user.club_department = cdpart
+        recent_user.department = department
+        recent_user.save()
+        if cdpart:
+            if len(number) == 11:
+                recent_user.phone_number = number
+                recent_user.save()
+                messages.success(request, "successfuly updated you can check back later for standing")
+            else:
+                messages.error(request, "number must be 11 digit")  
+    
+
     return render (request, "pages/view.html")
+
+    
+    
     

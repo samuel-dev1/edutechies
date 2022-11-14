@@ -183,3 +183,53 @@ margin-top: 100px;
     margin: 20px;
     color: #fff;
 }
+.editall{
+    width: 60%;
+    background-color: rgba(250, 249, 249, 0.745);
+    border: 2px solid #fff;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+.editall h1, h2, h3, h4, h5,h6{
+    color: rgba(36, 34, 34, 0.803);
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+}
+.editall p{
+    width: 50%;
+    text-align: left;
+    color: rgba(255, 0, 0, 0.314);
+    margin: auto;
+    padding: 10px;
+}
+.editall ul {
+    margin: auto;
+    padding: 10px;
+    text-align: justify;
+
+}
+.editall input{
+    padding: 6px;
+    margin: 10px;
+    margin-left: 10px;
+    width: 30%;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px groove #fff;
+
+}
+.editall button{
+    padding: 10px;
+    width: 60%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+    background-color: darkblue;
+    color:#fff;
+    border-radius: 6px;
+    margin: 40px;
+}
