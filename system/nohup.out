@@ -1,0 +1,17 @@
+Watching for file changes with StatReloader
+/Users/apple/Desktop/edutechies/system/system/settings.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 15, 2022 - 05:58:34
+Django version 4.1.1, using settings 'system.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 15, 2022 - 06:02:54
+Django version 4.1.1, using settings 'system.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
