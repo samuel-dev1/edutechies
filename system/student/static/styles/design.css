@@ -234,6 +234,7 @@ margin-top: 100px;
     margin: 40px;
 }
 
+
 @media  screen and (max-width:600px) {
     .form-wrap{
         width: 100%;
@@ -301,4 +302,159 @@ margin-top: 100px;
         color: #fff;
     }
     
+
+
+
+    .Navigations{
+        padding: 10px;
+        background-color: rgba(248, 248, 248, 0.704);
+        width: 90%;
+        margin-top: 10px;
+        border:2px solid rgba(232, 232, 232, 0.219) ;
+        margin: auto;
+    
+        
+    
+    }
+    .wrapper{
+       float: right;
+       color: rgba(5, 5, 70, 0.738);
+    
+    }
+    .techies{
+       background-color: rgba(241, 234, 234, 0.774); 
+       text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        font-size:medium;
+        font-weight: normal;
+        border-radius: 6px;
+        width: max-content;
+        padding: 10px;
+        margin-top: 20px;
+    
+        
+    
+    }
+    
+    .Navigations ul,li{
+        list-style: none;
+        padding: 10px;
+        height: auto;
+        display: inline;
+    }
+    .Navigations a{
+        text-decoration: none;
+        display: inline
+        
+    }
+    
+    .tech{
+        background-color: rgba(241, 234, 234, 0.774); 
+        text-align: left;
+         justify-content: left;
+         align-items: left;
+         margin: auto;
+         font-size:medium;
+         font-weight: normal;
+         width: 90%;
+         max-width: fit-content;
+         padding: 10px;
+         border-radius: 6px;
+         margin-top: 20px;
+    }
+    .tech p{
+        font-size: medium;
+        font-family:Arial, Helvetica, sans-serif;
+        padding: 10px;
+        word-spacing: normal;
+        
+    }
+    .best{
+        background-color: rgba(241, 234, 234, 0.774); 
+        text-align: left;
+         justify-content: left;
+         align-items: left;
+         margin: auto;
+         font-size:medium;
+         font-weight: normal;
+         width: 90%;
+    
+         padding: 10px;
+         border-radius: 6px;
+         margin-top: 20px; 
+    }
+    .best h5{
+        align-items: center;
+        text-align: center;
+        justify-content:center;
+        font-size: large;
+        padding: 10px;
+        text-transform: capitalize;
+    }
+    .best li{
+        display: block;
+        list-style:decimal;
+    
+    
+    }
+    .footer{
+        background-color: rgba(61, 14, 14, 0.112);
+        text-align: center;
+    
+}
+
+
+.editall{
+    width: 100%;
+    background-color: rgba(250, 249, 249, 0.745);
+    border: 2px solid #fff;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+.editall h1, h2, h3, h4, h5,h6{
+    color: rgba(36, 34, 34, 0.803);
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+}
+.editall p{
+    width: 70%;
+    text-align: left;
+    color: rgba(255, 0, 0, 0.314);
+    margin: auto;
+    padding: 10px;
+}
+.editall ul {
+    margin: auto;
+    padding: 10px;
+    text-align: justify;
+
+}
+.editall input{
+    padding: 6px;
+    margin: 10px;
+    margin-left: 10px;
+    width: 30%;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px groove #fff;
+
+}
+.editall button{
+    padding: 10px;
+    width: 60%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+    background-color: darkblue;
+    color:#fff;
+    border-radius: 6px;
+    margin: 40px;
+}
+
 }

@@ -7,7 +7,7 @@
 <div class="editall">
 
 <p>
-please edit your information according to the group messages</p>
+Please edit your information according to the group messages</p>
 
 <h1>{{request.user.username}}, Personal  information </h1>
 <ul>
@@ -34,9 +34,8 @@ email: <li><input value="{{request.user.email}}"  disabled />
 
 
 <h2>Profile</h2>
-<p>please edit the following pages as its required 
-a. your system ram specifications very important thanks.
-
+<p>Sorry you can't update your information anymore..
+    contact the admin for help...
 </p>
 <p>
 please check your ram on your computer system and edit the following accordingly
@@ -47,12 +46,12 @@ please check your ram on your computer system and edit the following accordingly
 <ul>
   
 
-System ram : <li><input name="ram"  value=" {{request.user.user_account.system_ram}}"  />
+System ram : <li><input name="ram"  value=" {{request.user.user_account.system_ram}}" disabled  />
   
    
 </ul>
 <ul>
-    club department: <li><input name="cdepart" value="{{request.user.user_account.club_department}}"   /></li>
+    club department: <li><input name="cdepart" value="{{request.user.user_account.club_department}}"  disabled  /></li>
     <ol style="color:red; font-size:small">
         options are:
         <li>Web development</li>
@@ -64,11 +63,11 @@ System ram : <li><input name="ram"  value=" {{request.user.user_account.system_r
    
 </ul>
     <ul>
-        phone number: <li> <input name ="number" value="{{request.user.user_account.phone_number}}"   /> </li>
+        phone number: <li> <input name ="number" value="{{request.user.user_account.phone_number}}" disabled  /> </li>
        
     </ul>
         <ul>
-            department:<li> <input name ="department" value = "{{request.user.user_account.department}}" /></li>
+            department:<li> <input name ="department" value = "{{request.user.user_account.department}}" disabled /></li>
            
         </ul>
         {% if messages %}
