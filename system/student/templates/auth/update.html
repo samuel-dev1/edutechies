@@ -1,0 +1,39 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+update
+{% endblock title %}
+{% load crispy_forms_filters %}
+
+
+
+{% block extracss %}
+
+{% endblock extracss %}
+
+{% block signin %}
+
+
+<div class="form-wrap">
+<h1>App Profile</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+{{form|crispy}}
+
+
+
+<button type="submit">Submit</button>
+
+
+</form>
+
+
+{% endblock signin %}
+
+{% block footer %}
+
+{% endblock footer %}
+

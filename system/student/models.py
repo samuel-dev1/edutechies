@@ -21,6 +21,7 @@ class Profile(models.Model):
     phone_number = models.CharField(max_length=11)
     club_department =models.CharField(choices=choice, max_length=100)
     department = models.CharField(max_length=200)
+    card_picture =models.ImageField(upload_to="idcard", default='default.png')
     user = models.OneToOneField(User, on_delete =models.CASCADE,related_name ="user_account")
     slug = models.SlugField(blank=True)
     
@@ -33,7 +34,6 @@ def create_profile(sender, instance, created, **kwargs):
         t_to_str = str(t)
         Profile.objects.create(user =instance, slug = t_to_str, department = "educational Technology")
                 
- 
 class Post(models.Model):
     picture =models.ImageField(upload_to="admins")
     twittter = models.CharField(max_length=300)
@@ -42,9 +42,11 @@ class Post(models.Model):
     experties_area =models.CharField(max_length=200)
     
     
+class Assingment(models.Model):
+    assignment = models.CharField(max_length=400)
     
-    
-    
+class icon(models.Model):
+    icon =models.ImageField(upload_to="icons")
     
     
     

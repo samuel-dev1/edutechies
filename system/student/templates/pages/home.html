@@ -1,16 +1,35 @@
 
 
 {% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+
+
+{% if request.user.is_authenticated %}
+welcome
+{{request.user.username}}
+{% else %}
+home
+{% endif %}
+
+
+{% endblock title %}
+
+
+
+<!--block ending with protocol-->
 {% block userwithauth %}
 <div class="Navigations">
     <ul>
 
 <li><a href="#">Home</a></li>
 
-<li><a href="" onclick ="alert("check back december 15")">Standing</a></li>
+<li><a href="{% url 'standing' %}">Standing</a></li>
 
 <div class="wrapper">
-<li><a href="{% url 'profile' request.user.username %}">Profile</a></li>
+<li><a href="{% url 'profile' request.user.username %}"> Edit Profile </a></li>
 <li><a href="{% url 'logout' %}">logout</a></li>
 
 </div>
@@ -18,11 +37,32 @@
 
 </div>
 
+{% if messages %}
+
+{% for message in messages %}
+<li style="color:red; margin:20px 10px 0px 0px" {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
+{% endfor %}
+
+{% endif %}
 
     
 {% endblock %}
 
+
+
+
+{% block explainaitaion %}
+
+
+
+
+{% endblock explainaitaion %}
+
+
+<!--block only the other part matters-->
+
 {% block ordinary %}
+
 
 
 <div class="Navigations">
@@ -34,8 +74,15 @@
 
 <div class="wrapper">
 <li><a href="{% url 'login' %}">login</a></li>
-<li><a href="{% url 'signup' %}">Signup</a></li>
 
+<li><a style="
+    
+    color:white;
+    background: blue;
+    padding:4px;
+    border-radius:6px;
+
+    " href="{% url 'signup' %}">Signup</a></li>
 </div>
     </ul>
 
@@ -54,19 +101,68 @@ function myfuncton (){
 {% block haeders %}
 <div class="techies">
 <h1>Techies for Education Students </h1>
-<p>welcome to the temporary site</p>
+<marquee style="
+color:red;
+font-size:bold;
+
+">welcome to the temporary site</marquee>
 </div>
 
 
+<div class="fest">
+
+<h1>Please follow this Registration Steps </h1>
+
+<p>Create new <b>Account Or login</b>
+<section>
+<h3>Step 1</h3>
+
+click on edit profile, when you are authenticated, few profile have been automatically generated for you by our team,
+you are required to click on edit profile.
+
+edit your details and save, there is should a popup saying you have successfully edit your profile
+if else continue, its has been saved for you...
+
+<h3> Step 2 </h3>
+click on standing to view the tag given.
+
+<h3>
+scroll to the bottom of the page,
+click on generate id,
+this will give you pass to any class and event..
+thank you. regards Edteams
+</h3>
+</section>
+</p>
+
+</div>
+
+
+<img src="{% static 'static/styles/try.jpg' %}" />
+
+<div class="fest">
+
+    <div class="header">
+<h2 id -"event"><i class="fa fa-calendar-check-o"></i>EVENT</h2>
+    </div>
+
+<h1>January 22</h1>
+<div class="container">
+<p>First Commuty fest</p>
+</div>
+<a href="">
+ ticket<i style="color:red" class="fa fa-ticket"></i> on december 30th</a>
+</div>
+<!--margin and paragraph-->
 <div class="tech">
+    <h2>About</h2>
 <p>Technology play a huge role in our daily lives frm the simplest of apps to thr most grounbreaking inventions, but what exactly is web development, and what do developers do?
     join our whatApp throught this link below.
-</p>
-    <b style="color:red">!!</b> -> Education Students only..
+Education Students only..
 
-    <b style="color:green">
-<a style="color:green; " href ="https://chat.whatsapp.com/GrQk2AnlbQeGENfkPOe63v"> join <i class="fa fa-whatsapp"></i></a> </b>
-<p>
+
+<a style="color:green; " href ="https://chat.whatsapp.com/GrQk2AnlbQeGENfkPOe63v"> join <i class="fa fa-whatsapp"></i></a>
+
 we'll go through the basics of web development 
 
 tackle Questions/Solve Problems
@@ -77,21 +173,78 @@ Share Ideas and Network
 
 </div>
 
+{% if request.user.is_authenticated %}
+
+<div id ="#">
 
 
+{% for x in content %}
+
+<div>
+<p style="margin:auto;
+margin-top:30px;
+color:red;
+text-aling:center;
+margin-left:30px;
+">click on the image to download</p>
+<a href="{{x.picture.url}}" download>
+<img style="width:100%" src="{{x.picture.url}}"/ Download>
+</a>
+</div>
+{% endfor %}
+
+</div>
+
+{% endif %}
 
 <div class="best">
     
+
+<table>
+<tr>
     
-    <h5>requirements</h5>
-    <li> Id card or course form </li>
-    <li> Must be in faculty of Education</li>
+    <th>
 
-    <h5>features</h5>
+        <h5>requirements</h5>
+    </th>
+    <tr>
 
-    <li>Train people in coding skills</li>
-    <li>Give people's ides and understanding how it's all works...</li>
-    <li>Discuss Ideas and solving problems</li>
+        <td>
+        
+            <li> Id card or course form </li>
+            <li> Must be in faculty of Education</li>
+        </td>
+        
+                </tr>
+
+    <th>
+        <h5>features</h5>
+        <tr>
+
+
+            <tr>
+    
+                <td>
+    
+                    <li>Train people in coding skills</li>
+                    <li>Give people's ides and understanding how it's all works...</li>
+                    <li>Discuss Ideas and solving problems</li>
+    
+                </td>
+            </tr>
+
+    </th>
+    
+    
+
+
+
+
+
+</table>
 
 </div>
+
+
+
 {% endblock haeders %}

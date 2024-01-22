@@ -18,6 +18,8 @@
 <!--<script src="{% static 'javascriptsfile/js.js' %}"> </script>
 -->
 <script src="https://use.fontawesome.com/29c758e36b.js" crossorigin="anonymouse"></script>
+
+
 <body>
 
     {% block profile %}{% endblock profile %}
@@ -33,44 +35,46 @@
     
     {% endblock ordinary %}
 
+
     {% endif %}
 
     <!--the process ends here proceeed to the screen to see wonders-->
-
 
     {% block haeders %}
 
     {% endblock %}
 
 
+{% block explainaitaion %}{% endblock explainaitaion %}
+
 
 
 {% block signin %}{% endblock signin %}
 
 {% block footer %}
-{% if request.user.is_authenticated %} <div class="footer">
+{% if request.user.is_authenticated %} <div class="fest">
     <h2> Edutechies &#169; 2021 &#8594; 2022</h2>
 
     <h4>Few Navigations</h4>
-    <a href="">Home</a>
-    <a href="">Standing</a>
+    <a href="#">Home</a>
+    <a href="{% url 'standing' %}">Standing</a>
     <a href="{% url 'logout' %}">Logout</a>
     <a href="{% url 'profile' request.user.username %}">Profile</a>
-    <a href ="">Generate id card</a>
-  
-
+    <a href ="{% url 'generate'%}"  onclick="alert('please update your profile pic for better card')">Generate id card</a>
+    <a href ="">Download time-table</a>
+    
     <h2 style="height:50px;">@Edutechies &#169; 2022 <a href="">{% if request.user.is_anonymouse %}Hire Us{% endif %}</a></h2>
 </div>
 
 {% else %}
-    <div class="footer">
+<div class="fest">
         <h2> Edutechies &#169; 2021 &#8594; 2022</h2>
     
         <h4>Few Navigations</h4>
-        <a href="">contact</a>
-        <a href="">About</a>
-        <a href="">Signup</a>
-        <a href="">login</a>
+        <a href="#">contact</a>
+        <a href="#">About</a>
+        <a href="{% url 'login' %}">login</a>
+        <a href="{% url 'signup' %}">signup</a>
       
 
         <h2 style="height:50px;">@Edutechies &#169; 2022 <a href="">{% if request.user.is_anonymouse %}Hire Us{% endif %}</a></h2>

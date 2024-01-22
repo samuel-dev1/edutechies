@@ -25,12 +25,12 @@ SECRET_KEY = 'django-insecure-6*&te^f+i2(czbg552!uua)(^a@i4#wd9a9ok!@cnymzhe((0=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.ngrok.io']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
-CSRF_TRUSTED_ORIGINS = ['https://b63b-105-112-182-44.eu.ngrok.io']
+CSRF_TRUSTED_ORIGINS = ['https://d8ae-105-113-20-102.eu.ngrok.io']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'student',
     'crispy_forms',
+    'student',
+    'crispy_bootstrap4',
 ]
 
 
@@ -54,12 +55,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'system.urls'
-
+ROOT_URLCONF = 'system.urls' # or any other template pack you prefer
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

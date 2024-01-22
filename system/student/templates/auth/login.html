@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% block title %}
+login
+{% endblock title %} 
 {% load crispy_forms_filters %}
 
 
@@ -11,26 +14,28 @@
 
 
 <div class="form-wrap">
-    <form method ="POST" class="main-form">
-        {% csrf_token %}
-        <h1>Login</h1>
-        
-{{form|crispy}}
-<p>
-{% if messages %}
 
-{% for message in messages %}
-<li style="color:yellow" {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
-{% endfor %}
+                <form method ="POST" class="main-form">
+                <marquee> advise to load this site only on desktop('build for desktop only!') please kindly note "your username is converted to lower case </marquee>
+                    {% csrf_token %}
+                    <h1>Login</h1>
+                   
+            {{form|crispy}}
+            <p>
+            {% if messages %}
 
-{% endif %}
-</p>
-<button type="submit">Login</button>
+            {% for message in messages %}
+            <li style="color:yellow" {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
+            {% endfor %}
 
+            {% endif %}
+            </p>
+            <button style="
+            margin-bottom:50px;
+            " type="submit">Login</button>
 
-<h5>Don't have account <a href="{% url 'signup' %}">here</a></h5>
-    </form>
-<h6>Forget password <a onclick ="alert('please contant the admin for help')">click here</a></h6>
+                <p>Don't have account <a href="{% url 'signup' %}" onclick="alert("registration ended in 5hrs ")">here</a></p>
+                </form>
 
 </div>
 

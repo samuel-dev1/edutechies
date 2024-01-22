@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block title %}
+standing
+{% endblock title %}
+{% load crispy_forms_filters %}
+
+
+
+{% block extracss %}
+
+{% endblock extracss %}
+
+{% block signin %}
+
+
+<div class="mystyle">
+<h1>Major STANDING</h1>
+
+<div class="tags">
+{% if request.user.user_account.system_ram == 2 %}
+
+<h3>Edutechies<i class="fa fa-tags"></i>tag: <b>Web-design</b></h3>
+
+<h3>Members</h3>
+
+{% for x  in ram2 %}
+
+<table>
+    <tr>
+        <th>
+   First Name</th>  <th>Last Name</th> <th>Phone number</th> </tr>
+   <tr>
+    <td>
+{{x.user.first_name.upper}}</td> <td> {{x.user.last_name}} </td> <td> {{x.phone_number}} </td>
+   </tr>
+</table>
+{% endfor %}
+
+{% elif request.user.user_account.system_ram == 4 %}
+<h3>Edutechies<i class="fa fa-tags"></i>tag: <b>Web-development</b></h3>
+
+<h3>Members</h3>
+
+{% for x  in ram4 %}
+<table>
+    <tr>
+        <th>
+   First Name</th>  <th>Last Name</th> <th>Phone number</th> </tr>
+   <tr>
+    <td>
+{{x.user.first_name.upper}}</td> <td> {{x.user.last_name}} </td> <td> {{x.phone_number}} </td>
+   </tr>
+</table>
+{% endfor %}
+
+ {% elif request.user.user_account.system_ram == 8 %}
+ <h3>Edutechies<i class="fa fa-tags"></i>tag: <b>Web-development with heigher frameworks</b></h3>
+ {% for x in ram8  %}
+ <table>
+    <tr>
+        <th>
+   First Name</th>  <th>Last Name</th> <th>Phone number</th> </tr>
+   <tr>
+    <td>
+{{x.user.first_name.upper}}</td> <td> {{x.user.last_name}} </td> <td> {{x.phone_number}} </td>
+   </tr>
+</table>
+{% endfor %}
+ {% elif request.user.user_account.system_ram  > 8 %}
+ <h3>Edutechies<i class="fa fa-tags"></i>tag: <b>tag: App development</b></h3>
+ <h3>Members</h3>
+
+{% for x  in ram8 %}
+<table>
+    <tr>
+        <th>
+   First Name</th>  <th>Last Name</th> <th>Phone number</th> </tr>
+   <tr>
+    <td>
+{{x.user.first_name.upper}}</td> <td> {{x.user.last_name}} </td> <td> {{x.phone_number}} </td>
+   </tr>
+</table>
+{% endfor %}
+ 
+{% endif %}
+</div>
+</div>
+<a href="{% url 'profile' request.user.username %}">Dashboard</a>
+<Text> You are seeing TAG! this base on your system_ram</Text>
+{% endblock signin %}
+{% block footer %}
+{% endblock footer %}
+

@@ -12,15 +12,14 @@ import datetime
 from django.db.models.query_utils import Q
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from .models import Profile, Post
+from .models import Profile, Post,icon
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def home(request):
-    context = Post.objects.all()
+    context = Post.objects.filter(whatsapp = 'jsjssjjssjhsh')
     content = {"content":context}
     return render(request, "pages/home.html",  content)
-
-
 
 def login_page(request):
     """
@@ -38,7 +37,7 @@ def login_page(request):
         if user is not None and  user.is_active:
             login(request,user)
             messages.success(request,"Login successful" )
-            return redirect('home')
+            return redirect('profile/<username>')
         else:
             messages.error(request, "details error, do you forget your password?")
             
@@ -49,7 +48,7 @@ def login_page(request):
 
 def logout_page(request):
     logout(request)
-    return redirect('home')
+    return redirect('login')
 def signup(request):
     """
     for signing user which will be 
@@ -65,7 +64,7 @@ def signup(request):
         form = signupform(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request,"Profile created login to continue")
+            messages.success(request,"Profile created, login to continue")
             return redirect('login')
         else:
             messages.error(request, "Registration failed! kindly check your details ")
@@ -76,28 +75,25 @@ def signup(request):
 
 @login_required
 def viewprofile(request, username):
-    
     recent_user = get_object_or_404(Profile, user =request.user.id)
-    if request.method == "POST":
-        ram = request.POST.get("ram")
-        cdpart = request.POST.get("cdepart")
-        number = request.POST.get("number")
-        department = request.POST.get("department")
-        recent_user.system_ram = ram
-        recent_user.club_department = cdpart
-        recent_user.department = department
-        recent_user.save()
-        if cdpart:
-            if len(number) == 11:
-                recent_user.phone_number = number
-                recent_user.save()
-                messages.success(request, "successfuly updated you can check back later for standing")
-            else:
-                messages.error(request, "number must be 11 digit")  
-    
+    return render (request, "pages/view.html",{'user':recent_user})
 
-    return render (request, "pages/view.html")
+@login_required
+def standing(request):
+    ram_2 = Profile.objects.filter(system_ram = 2)
+    ram_4 = Profile.objects.filter(system_ram = 4)
+    ram_8 = Profile.objects.filter(system_ram =8)
+    list_ram ={"ram2":ram_2, "ram4":ram_4, "ram8": ram_8}
+    return render(request, "pages/standing.html", list_ram)
 
-    
-    
+@login_required
+def generate_idAndtimetable(request):
+    return render(request,"pages/generate.html")
+class updateimag(UpdateView, LoginRequiredMixin):
+    model = Profile
+    fields = ['card_picture']
+    success_url ='/'
+    template_name = "auth/update.html"
+     
+
     

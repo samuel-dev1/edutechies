@@ -1,102 +1,172 @@
 {% extends 'base.html' %}
 
+{% block explainaitaion %}
 
 
-{% block profile %}
+<div style="background:rgba(7, 7, 58, 0.896); color:white; padding:4px;">
+    <center>
+ <nav>
+<a  style="color:white ; font-size:small; padding:10px;"  href="logout">Logout</a>
+<b style="color:white ; font-size:small; padding:10px;"> today:
+<a style=" font-size:small; padding:10px;" id ="time"></a> </b>
+ </nav>
+    </center>
 
-<div class="editall">
+ <script>
+var time = new Date();
 
-<p>
-Please edit your information according to the group messages</p>
-
-<h1>{{request.user.username}}, Personal  information </h1>
-<ul>
-    Edutechies id:  <li><input value ="{{request.user.user_account.slug}}" disabled /> </li>
-
-</ul>
-
-<ul>
-username: <li><input value="{{request.user.username}}" disabled />
-</li>
-</ul> 
-
-<ul>
-full name: <li><input value="{{request.user.first_name}} {{request.user.last_name}}"  disabled />
-</li>
-</ul>
-
-<ul>
-email: <li><input value="{{request.user.email}}"  disabled />
-</li>
-</ul>
-
-
-
-
-<h2>Profile</h2>
-<p>Sorry you can't update your information anymore..
-    contact the admin for help...
-</p>
-<p>
-please check your ram on your computer system and edit the following accordingly
-</p>
-
-<form method ="post" >
-    {% csrf_token %}
-<ul>
-  
-
-System ram : <li><input name="ram"  value=" {{request.user.user_account.system_ram}}" disabled  />
-  
-   
-</ul>
-<ul>
-    club department: <li><input name="cdepart" value="{{request.user.user_account.club_department}}"  disabled  /></li>
-    <ol style="color:red; font-size:small">
-        options are:
-        <li>Web development</li>
-        <li>app development</li>
-        <li>web design</li>
-        <li>Others</li>
-    </ol>
-    
-   
-</ul>
-    <ul>
-        phone number: <li> <input name ="number" value="{{request.user.user_account.phone_number}}" disabled  /> </li>
-       
-    </ul>
-        <ul>
-            department:<li> <input name ="department" value = "{{request.user.user_account.department}}" disabled /></li>
-           
-        </ul>
-        {% if messages %}
-
-        <ul class="messages">
-            {% for message in messages %}
-            <li style="color:red" {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-
-        
-
-<button type ="submit">
-Save
-
-</button>
-    </form>
-
-  
-
- 
+var b = document.getElementById("time").innerText =time.toDateString();
+document.getElementById("time").style.color="white";
+ </script>
 </div>
 
+<div class="eng-wrapper">
+  <h5><b>Login ID:</b> {{request.user.user_account.slug}}</h5>
 
-<a href="{% url 'home' %}">Go back</a>
-{% endblock profile %}
+  <h5><b>Welcome:</b> {{request.user.first_name.upper}}, {{request.user.last_name}}(<a href="{% url 'logout'  %}">Logout</a>)</h5>
+<div style="margin-left:auto;" class="helloboss">
+    <center>
+  <h5><b>Last Login:</b>{{request.user.last_login}}, </h5>
+<h5>January (set) 2023/2024</h5>
+</center>
+</div>
+    </div>
+        <style>
+         .blocking {
+background-color: whitesmoke;
+border:2px solid rgba(135, 206, 250, 0.761);
+display: block;
+         }    
+
+         .data{
+            background-color: lightgoldenrodyellow;
+            border: 1px solid  rgba(135, 206, 250, 0.235);
+        
+         }
+         .panel{
+            display: block;
+         }
+         .panel ul, li{
+            display: block;
+         }
+        
+
+</style>
+
+<div class="display-tall">
+
+        <div  class="blocking">            
+                        <button
+                        id="data" class="data">
+                            
+                            
+                   
+                            <img height="15px" width="20px" src="{{user.card_picture }}" />
+                            
+                            Menu <i id="myicon" class="fa fa-angle-double-up"></i> </button>
+
+                                    <div class="panel">
+                                    <ul>
+                                        <li><a href="" onclick="alert('No assignment Allocated!')">Assignment</a></li>
+
+                                
+                                    <li><a href="" onclick="alert('No lecture Allocated!')">Lectures</a></li>
+                                    <li><a href="" onclick="alert('complain space will be  Allocated soon!!')">Complains</a></li>
+                                    </ul>
+                                    </div>
+
+
+
+                                    <button
+                        class="data"
+                                    id="data" class="data">
+                                        
+                                        
+                                        {% for x in icon  %}
+                                        <img height="15px" width="20px" src="{{x.icon.url}}" />
+                                        {% endfor %}
+                                                        
+                                                        
+                                        Personl details <i id="myicon2" class="fa fa-angle-double-up"></i> </button>
+
+                                    <div class="panel">
+                                    
+                                        <ul>
+                                            <li>{{request.user.first_name}}</li>
+                                    <li>{{request.user.last_name}}</li>
+                                    <li>{{request.user.user_account.department}}</li>
+                                                        <li>{{request.user.user_account.club_department}}</li>            
+                                
+                                </ul> 
+
+                                    </div>
+                                    
+                                    <script>
+                                    var acc = document.getElementsByClassName("data");
+                                    var see = document.getElementById("myicon");
+                                    var see2 = document.getElementById("myicon2");
+                                    var i;
+                                    
+                                    for (i = 0; i < acc.length; i++) {
+                                    acc[i].addEventListener("click", function() {
+                                        this.classList.toggle("active");
+                                        var panel = this.nextElementSibling;
+                                        if (panel.style.display === "block") {
+                                        panel.style.display = "none";
+                                        see.className = "fa fa-angle-double-down";
+                                        see2.className = "fa fa-angle-double-down";
+                                        } else {
+                                        panel.style.display = "block";
+                                        see.className= "fa fa-angle-double-up";
+                                        see2.className = "fa fa-angle-double-up";
+                                        }
+                                    });
+                                    }
+                                    </script>
+                                    
+                                
+        </div>
 
 
 
 
-{% block footer %}{% endblock footer %}
+            <div class="main-menu">
+                <h4>Main Menu </h4>
+            
+
+
+                <section>Click  on the link at the left-hand side to continue</section>
+                <p >
+                For support request via samuel@gmail.com, kindly provide your  required 
+                information(staff-filno, department), (student-matno, Scanned ID-Card or complete course form).
+                please ensure you follow the mail thread as duplicate requests/entries on the same subject not allowed
+                </p>
+
+<center>
+<div class="table">
+                <table border="1" >
+                    <tbody><tr><th>Edutechies ID</th><td><b>{{request.user.user_account.slug}}</b></td><td rowspan="6" valign="top"><fieldset><legend><b style="color:red ;">Passport</b></legend><img  src="{{request.user.user_account.card_picture.url}}"  alt="96376814HH.jpg" width="150" height="150"></fieldset></td></tr>
+                 <tr><th>Full-Name</th><td><b>{{request.user.first_name.upper}}, {{request.user.last_name}}</b></td></tr>
+                 <tr><th>Department</th><td><b>{{request.user.user_account.department}}</b></td></tr>
+                 <tr><th>Club Department</th><td><b>{{request.user.user_account.club_department}}</b></td></tr>
+                 </tbody></table>
+</div>
+                </center>
+
+
+        </div>
+
+            </div>
+
+    </div>
+<center >
+    <a style="font-size:11px;color:red"href="" onclick="alert('Upadating is not  available for now!')">Edit Personl details</a>
+    <a  style="font-size:11px; color:red"href="{% url 'img-update' user.slug %}">Upload a new picture</a>
+
+</center>
+<a  style="font-size:11px; color:red"href="{% url 'standing'%}">check Prevoius set Rating!</a>
+<a href="{% url 'generate'  %}">Generate Id card</a>
+{% endblock explainaitaion %}
+{% block footer %}
+
+{% endblock %}
